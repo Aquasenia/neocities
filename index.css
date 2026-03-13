@@ -1,0 +1,65 @@
+.light-theme {
+    --background-color: rgb(255, 255, 255);
+    --accent-color: #878057;
+    --text-color: rgb(0, 0, 0);
+}
+
+.dark-theme {
+    --background-color: rgb(0, 0, 0);
+    --accent-color: #878057;
+    --text-color: rgb(255, 255, 255);
+}
+
+body {
+    box-sizing: border-box;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 20px 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    padding: 2px 0px;
+    margin: 0px;
+}
+
+p, a, span, i, li, ul, ol, caption, strong {
+    font-family: "Poppins", "Arial", sans-serif;
+    font-weight: 400;
+    padding: 2px 0px;
+    margin: 0px;
+    line-height: 1.2;
+    word-break: break-word;
+    text-decoration: none;
+    list-style: none;
+}
+
+li::before {
+    content: "✦ ";
+}
+
+a {
+    color: grey;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+section {
+    display: block;
+    margin-bottom: 20px;
+}
+
+div {
+    display: block;
+}
+
+.icon {
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+}
