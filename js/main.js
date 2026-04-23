@@ -365,3 +365,7 @@
     })();
 
 })(document.documentElement);
+
+$(document).ready(function() {
+    $("html").easeScroll();
+});
