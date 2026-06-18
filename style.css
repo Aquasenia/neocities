@@ -1,15 +1,40 @@
+/* Fonts loading. This is to make sure I can use them via the local files. */
 @font-face {
-	font-family: Alagard;
+	font-family: "Alagard";
 	/* set name */
 	src: url(fonts/alagard.ttf);
 	/* url of the font */
 }
 
 @font-face {
-	font-family: Comicoro;
-	/* set name */
+	font-family: "Comicoro";
 	src: url(fonts/Comicoro.ttf);
-	/* url of the font */
+}
+
+:root {
+
+/* Colors */
+	--text: black;
+	--section-bg: #FFEFEF;
+	--accent: #ff9999;
+
+/* Variations */
+	--accent-lighter: #ffcccc ;
+	--accent-light: #fcb0b1 ;
+	--accent-dark: #ff6666;
+	--accent-darker: #ff6666;
+
+/* Text fonts */
+	--title: "Alagard";
+	--body: "Comicoro";
+
+/* Text sizes */
+	--h1: 40px;
+	--h2: 36px;
+	--h3: 32px;
+	--h4: 28px;
+	--h5: 24px;
+
 }
 
 /* Utilities! Should be used with line breaks and divs to make sure the code won't be too full of it. */
@@ -33,7 +58,7 @@
 html {
 	width: 100vw;
 	height: 100vh;
-	background-color: salmon;
+	background-color: var(--accent);
 }
 
 section {
@@ -55,20 +80,32 @@ h1, h2, h3, h4, h5, p, small, em, i, b, strong, caption, a, img, table, td, tr, 
 }
 
 h1, h2, h3, h4, h5, th {
-	font-family: "Alagard";
+	font-family: var(--title);
 	padding: 5px 0px 5px 0px;
 }
 
 h1 {
-	font-size: 36px;
+	font-size: var(--h1);
 }
 
 h2 {
-	font-size: 30px;
+	font-size: var(--h2);
+}
+
+h3 {
+	font-size: var(--h3);
+}
+
+h4 {
+	font-size: var(--h4);
+}
+
+h5 {
+	font-size: var(--h5);
 }
 
 p, small, em, i, b, strong, caption, a, img, table, td, tr, th, mark {
-	font-family: "Comicoro";
+	font-family: var(--body);
 }
 
 p, b, i, em, strong, a, td, mark {
@@ -80,12 +117,12 @@ small, legend, caption {
 }
 
 a {
-	color: black;
+	color: var(--accent);
 	text-decoration: none;
 }
 
 a:hover {
-	color: #FB998E;
+	color: var(--accent-dark);
 }
 
 table, th, td {
@@ -106,6 +143,17 @@ td {
 }
 
 /* Class-specific */
+
+.button {
+	width: fit-content;
+	border: 0px;
+	padding: 10px;
+	margin: 10px;
+	border-color: var(--accent);
+	background-color: var(--accent);
+}
+
+/* For the small pills used to display info about me. When the user hovers their mouse over them, they are supposed to grow to 120px. */
 .img-hoverable {
 	width: 100px;
 	padding: 0px;
@@ -125,9 +173,21 @@ td {
 }
 
 /* ID-specific */
+#welcome div {
+	padding: 20px;
+	margin: 10px;
+	background-color: var(--section-bg);
+	border-radius: 20px;
+	float: none;
+	position: static;
+	align-content: center;
+	align-items: center;
+	display: flexbox;
+}
+
 #about-me {
 	float: left;
-	background-color: #eeeeee;
+	background-color: var(--section-bg);
 	border-radius: 20px;
 	padding: 20px;
 	margin: 10px;
@@ -140,7 +200,7 @@ td {
 
 #OCs {
 	float: right;
-	background-color: #eeeeee;
+	background-color: var(--section-bg);
 	border-radius: 20px;
 	padding: 20px;
 	margin: 10px;
