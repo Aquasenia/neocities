@@ -1,45 +1,57 @@
 /* Fonts loading. This is to make sure I can use them via the local files. */
 @font-face {
-	font-family: "Alagard";
-	/* set name */
-	src: url(fonts/alagard.ttf);
-	/* url of the font */
-}
-
-@font-face {
 	font-family: "Comicoro";
 	src: url(fonts/Comicoro.ttf);
 }
 
+@font-face {
+	font-family: "Classic";
+	src: url(fonts/ClassicShit.ttf);
+}
+
 :root {
 
-/* Colors */
+	/* Colors */
 	--text: black;
 	--section-bg: #FFEFEF;
 	--accent: #ff9999;
 
-/* Variations */
-	--accent-lighter: #ffcccc ;
-	--accent-light: #fcb0b1 ;
+	/* Variations */
+	--caption: #CFB2B2;
+	--caption-dark: #B39898;
+	--caption-darker: #876f6f;
+	--accent-lighter: #ffcccc;
+	--accent-light: #fcb0b1;
 	--accent-dark: #ff6666;
-	--accent-darker: #ff6666;
+	--accent-darker: #e74b4b;
 
-/* Text fonts */
-	--title: "Alagard";
+	/* Text fonts */
+	--title: "Classic";
 	--body: "Comicoro";
 
-/* Text sizes */
-	--h1: 40px;
-	--h2: 36px;
+	/* Text sizes */
+	--h1: 44px;
+	--h2: 38px;
 	--h3: 32px;
 	--h4: 28px;
 	--h5: 24px;
+	--p: 28px;
 
+	/* Padding values */
+	--padding-20px: 20px;
+
+	/* Border radius */
+	--standard-border-radius: 10px;
+
+}
+
+* {
+	box-sizing: border-box;
 }
 
 /* Utilities! Should be used with line breaks and divs to make sure the code won't be too full of it. */
 .add-top {
-	padding-top: 20px;
+	padding-top: var(--20px-padding);
 }
 
 .remove-top {
@@ -51,14 +63,15 @@
 }
 
 .add-bottom {
-	padding-bottom: 20px;
+	padding-bottom: var(--20px-padding);
 }
 
 /* Categories, "vanilla" HTML */
 html {
-	width: 100vw;
-	height: 100vh;
+	max-width: 100vw;
+	max-height: 100vh;
 	background-color: var(--accent);
+	scroll-behavior: smooth;
 }
 
 section {
@@ -72,14 +85,37 @@ div {
 }
 
 /* Text styles */
-h1, h2, h3, h4, h5, p, small, em, i, b, strong, caption, a, img, table, td, tr, th, mark {
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+small,
+em,
+i,
+b,
+strong,
+caption,
+a,
+img,
+table,
+td,
+tr,
+th,
+mark {
 	padding: 0px;
 	border: 0px;
 	margin: 0px;
 	overflow: visible;
 }
 
-h1, h2, h3, h4, h5, th {
+h1,
+h2,
+h3,
+h4,
+h5,
+th {
 	font-family: var(--title);
 	padding: 5px 0px 5px 0px;
 }
@@ -104,15 +140,41 @@ h5 {
 	font-size: var(--h5);
 }
 
-p, small, em, i, b, strong, caption, a, img, table, td, tr, th, mark {
+p,
+small,
+em,
+i,
+b,
+strong,
+caption,
+a,
+img,
+table,
+td,
+tr,
+th,
+mark {
 	font-family: var(--body);
 }
 
-p, b, i, em, strong, a, td, mark {
+p,
+b,
+i,
+em,
+strong,
+a,
+td,
+mark {
 	font-size: 28px;
 }
 
-small, legend, caption {
+p {
+	line-height: 20px;
+}
+
+small,
+legend,
+caption {
 	font-size: 24px;
 }
 
@@ -125,9 +187,12 @@ a:hover {
 	color: var(--accent-dark);
 }
 
-table, th, td {
+table,
+th,
+td {
 	border: none;
-	border-collapse: collapse; /* Prevents spacing gaps between cells */
+	border-collapse: collapse;
+	/* Prevents spacing gaps between cells */
 	padding: 5px;
 }
 
@@ -138,19 +203,33 @@ tr {
 }
 
 td {
-	flex: calc(100% / 13);
+	display: flex;
 	overflow: visible;
 }
 
 /* Class-specific */
+.caption {
+	color: var(--caption);
+	font-size: 20px;
+}
+
+.caption a {
+	color: var(--caption-dark);
+	font-size: 20px;
+}
+
+.caption a:hover {
+	color: var(--caption-darker);
+}
 
 .button {
+	float: none;
+	background-color: var(--section-bg);
+	border-radius: var(--standard-border-radius);
 	width: fit-content;
 	border: 0px;
 	padding: 10px;
 	margin: 10px;
-	border-color: var(--accent);
-	background-color: var(--accent);
 }
 
 /* For the small pills used to display info about me. When the user hovers their mouse over them, they are supposed to grow to 120px. */
@@ -172,12 +251,30 @@ td {
 	overflow: visible;
 }
 
+.linebreak {
+
+}
+
 /* ID-specific */
+#notice {
+	text-align: center;
+	display: block;
+	position: static;
+	padding: 10px;
+	margin: 10px;
+	margin-bottom: 0px;
+	border: dotted 4px;
+	border-radius: 5px;
+	border-color: var(--accent-darker);
+	background-color: var(--accent-dark);
+	color: white;
+}
+
 #welcome div {
-	padding: 20px;
+	padding: var(--padding-20px);
 	margin: 10px;
 	background-color: var(--section-bg);
-	border-radius: 20px;
+	border-radius: var(--standard-border-radius);
 	float: none;
 	position: static;
 	align-content: center;
@@ -188,27 +285,29 @@ td {
 #about-me {
 	float: left;
 	background-color: var(--section-bg);
-	border-radius: 20px;
-	padding: 20px;
+	border-radius: var(--standard-border-radius);
+	padding: var(--padding-20px);
 	margin: 10px;
 	display: flexbox;
 	overflow: visible;
 	position: relative;
-	width: fit-content;
 	max-width: 45%;
+	width: fit-content;
+
 }
 
 #OCs {
 	float: right;
 	background-color: var(--section-bg);
-	border-radius: 20px;
-	padding: 20px;
+	border-radius: var(--standard-border-radius);
+	padding: var(--padding-20px);
 	margin: 10px;
 	display: flexbox;
 	position: relative;
 	overflow: visible;
 	width: fit-content;
 	max-width: 45%;
+	font-family: inherit;
 }
 
 #OCs img {
