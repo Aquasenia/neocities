@@ -173,7 +173,8 @@ caption {
 	font-size: 24px;
 }
 
-mark {}
+mark {
+}
 
 a {
 	color: var(--accent);
