@@ -15,6 +15,8 @@
 	--text: black;
 	--section-bg: #FFEFEF;
 	--accent: #ff9999;
+	--selection: #ff999980;
+	--small-color: grey;
 
 	/* Variations */
 	--caption: #CFB2B2;
@@ -37,6 +39,7 @@
 	--h5: 28px;
 	--h6: 24px;
 	--table-header: 20px;
+	--small: 20px;
 	--p: 28px;
 
 	/* Padding values */
@@ -52,6 +55,13 @@
 	/* Border radius */
 	--standard-border-radius: 10px;
 
+}
+
+/* To make it so that the borders are calculated in the overall sizing of the box. */
+body {
+	padding: var(--padding-10px);
+	margin: var(--margin-10px);
+	box-sizing: border-box;
 }
 
 /* Font family for Header text */
@@ -108,48 +118,92 @@ blockquote, q, abbr, address, cite, bdo,
 a, button,
 td,
 li,
-b, strong, i, em, mark, small, del, ins, sub, sup {
+b, strong, i, em, mark, del, ins, sub, sup {
 	font-size: var(--p);
+}
+
+small mark {
+	font-size: var(--small);
+	color: var(--small-color);
+}
+
+small {
+	font-size: var(--small);
+	color: var(--small-color);
+}
+
+mark {
+	background-color: var(--selection);
+}
+
+a:hover {
+	color: var(--accent);
+}
+
+::selection {
+	background-color: var(--selection);
 }
 
 /* Classes */
 
 .about-me {
-	width: fit-content;
+	display: block;
+	width: 200px;
 	max-width: 100vw;
 	padding: var(--padding-10px);
-	margin: var(--margin-10px);
+	border-radius: var(--standard-border-radius);
+	background-color: var(--accent-lighter);
 }
 
-.list-about-me li {
-	width: fit-content;
-	max-width: 50vw;
+.list-about-me {
 	padding: var(--no-padding);
 	margin: var(--no-margin);
 	list-style-type: none;
 }
 
-/* For the navigation bar */
-.nav-bar {
+.interests {
 	display: block;
 	float: left;
 }
 
+/* For the navigation bar */
+.nav-bar {
+	width: 150px;
+	padding: var(--padding-10px);
+	margin-right: var(--padding-10px);
+	margin-bottom: var(--padding-10px);
+	display: block;
+	float: left;
+	border: none;
+	border-radius: var(--standard-border-radius);
+	background-color: var(--accent-lighter);
+}
+
 .nav-bar ul, ol {
-	list-style-type: none;
+	padding: var(--no-padding);
 	margin: var(--no-margin);
-	padding: var(--no-margin);
-	width: 200px;
+	list-style-type: none;
 }
 
 .nav-bar li, a {
+	font-size: var(--p);
 	color: var(--text);
 	text-decoration: none;
 	list-style-type: none;
 	padding: var(--no-padding);
 	margin: var(--no-margin);
+	transition: transform 0.5s;
 }
 
-.nav-bar li a:hover {
-	color: var(--accent-dark);
+.nav-bar a:hover {
+	transform: scale(1.1);
+	color: var(--accent-darker);
+}
+
+/* IDs */
+
+#notice {
+	width: fit-content;
+	max-width: 100vw;
+	display: block;
 }
