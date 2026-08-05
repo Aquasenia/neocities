@@ -1,37 +1,37 @@
 /* Fonts loading. This is to make sure I can use them via the local files. */
 @font-face {
-	font-family: "Comicoro";
-	src: url(fonts/Comicoro.ttf);
+	font-family: "Arima";
+	src: url(fonts/Arima-VariableFont.ttf);
 }
 
 @font-face {
-	font-family: "Classic";
-	src: url(fonts/ClassicShit.ttf);
+	font-family: "Mulish";
+	src: url(fonts/Mulish-VariableFont.ttf);
+}
+
+@font-face {
+	font-family: "Mulish Italics";
+	src: url(fonts/Mulish-Italic-VariableFont.ttf);
 }
 
 :root {
 
-	/* Colors */
-	--text: black;
-	--section-bg: #FFEFEF;
-	--accent: #ff9999;
-	--selection: #ff999980;
-	--small-color: grey;
+	--black: black;
+	--white: #ffffff;
 
-	/* Variations */
-	--caption: #CFB2B2;
-	--caption-dark: #B39898;
-	--caption-darker: #876f6f;
-	--accent-lighter: #ffcccc;
-	--accent-light: #fcb0b1;
-	--accent-dark: #ff6666;
-	--accent-darker: #e74b4b;
+	/* theme LIGHT */
+	--accent: #8ebb7f;
+	--hover: #517d42;
+	--background-l: #ecf3e9;
+	--background-dark-l: #dcdcdc;
+	--background-darker-l: #a0a0a0;
 
-	/* Text fonts */
-	--title: "Classic";
-	--body: "Comicoro";
+	/* theme DARK */
+	--link-d: ;
+	--link-hover-d: ;
+	--selection-d: ;
 
-	/* Text sizes */
+	/* font sizes */
 	--h1: 46px;
 	--h2: 40px;
 	--h3: 36px;
@@ -40,20 +40,25 @@
 	--h6: 24px;
 	--table-header: 20px;
 	--small: 20px;
-	--p: 28px;
+	--p: 18px;
 
-	/* Padding values */
+	/* padding values */
 	--no-padding: 0px;
 	--padding-10px: 10px;
 	--padding-20px: 20px;
 
-	/* Margin values */
+	/* margin values */
 	--no-margin: 0px;
 	--margin-10px: 10px;
 	--margin-20px: 20px;
 
-	/* Border radius */
+	/* border radius */
 	--standard-border-radius: 10px;
+
+	/* font families */
+	--font-header: "Arima";
+	--font-body: "Mulish";
+	--font-body-italics: "Mulish Italics";
 
 }
 
@@ -74,7 +79,7 @@ h6,
 th {
 	padding: var(--no-padding);
 	margin: var(--no-margin);
-	font-family: "Classic";
+	font-family: var(--font-header);
 }
 
 /* Font family for Body text */
@@ -102,7 +107,7 @@ sub,
 sup {
 	padding: var(--no-padding);
 	margin: var(--no-margin);
-	font-family: "Comicoro";
+	font-family: var(--font-body);
 }
 
 /* Font sizes for the headers and normal text */
@@ -161,41 +166,35 @@ sup {
 small,
 small * {
 	font-size: var(--small);
-	color: var(--small-color);
+	color: var(--background-dark-l);
 }
 
-mark {
-	background-color: var(--selection);
-}
-
-a {
-	color: var(--accent);
-	text-decoration: none;
-}
-
-a:hover {
-	color: var(--accent-dark);
-	text-decoration: none;
-}
-
-::selection {
-	background-color: var(--selection);
+mark, ::selection {
+	background-color: var(--accent);
 }
 
 /* Classes */
 /*Utility classes that can be paired with other classes, for aesthetic uses only.*/
-.lightpink-box-rounded-corners {
-	background-color: var(--section-bg);
+.navbar-box {
+	background-color: var(--hover);
+	padding: var(--padding-20px);
+	border-radius: var(--standard-border-radius);
+	border-collapse: collapse;
+}
+
+.content-box-rounded-corners {
+	background-color: var(--background-dark-l);
 	padding: var(--padding-10px);
 	border-radius: var(--standard-border-radius);
 	border-collapse: collapse;
 }
 
+
 /*Grid of the website. DO NOT TOUCH UNLESS ABSOLUTELY CERTAIN ABOUT WHAT YOU'RE DOING.
 	This is responsible for the website's layout, so you should not mess with it.*/
 .grid {
 	display: grid;
-	grid-template-columns: 150px 2fr 2fr 1fr;
+	grid-template-columns: 150px auto auto auto;
 	grid-template-rows: repeat(4 1fr);
 	grid-template-areas:
 		"navbar header header header"
@@ -214,22 +213,64 @@ a:hover {
 	grid-template-rows: repeat(5 1fr);
 	gap: var(--padding-10px);
 	grid-area: navbar;
-	grid-template-areas: 
-	"navbar-img";
+	grid-template-areas:
+		"navbar-img";
 }
 
 .navbar img {
-	grid-area: navbar-img;
 	position: relative;
-	width: 120px;
+	max-width: 120px;
+	filter: invert(100%);
+	grid-area: navbar-img;
 	border-collapse: collapse;
 	padding: var(--no-padding);
 	margin: var(--no-margin);
-	-webkit-user-drag: none;
-	user-select: none;
-	-moz-user-select: none;
-	-webkit-user-select: none;
-	-ms-user-select: none;
+}
+
+.navbar-img {
+	align-items: center;
+	align-self: center;
+	align-content: center;
+	justify-content: center;
+	justify-self: center;
+	justify-items: center;
+}
+
+.navbar-box a {
+	color: var(--background-l);
+	text-decoration: none;
+}
+
+.navbar-box :hover {
+	color: var(--accent);
+	text-decoration: none;
+}
+
+.content-wrap {
+	grid-area: content;
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-template-areas:
+		"funfacts languages personalinfo";
+	gap: var(--padding-20px);
+}
+
+.funfacts {
+	grid-area: funfacts;
+}
+
+.languages {
+	grid-area: languages;
+}
+
+.personalinfo {
+	grid-area: personalinfo;
+}
+
+.funfacts,
+.languages,
+.personalinfo h6 {
+	text-align: center;
 }
 
 /* IDs */
