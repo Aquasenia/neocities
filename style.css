@@ -170,14 +170,13 @@ mark,
 }
 
 .content-box-rounded-corners {
-	background-color: var(--background-dark-l);
+	background-color: var(--background-l);
 	border-radius: var(--standard-border-radius);
 	padding: var(--padding-20px);
-	margin: var(--no-margin);
+	margin: var(--margin-10px);
 }
 
-/*Grid of the website. DO NOT TOUCH UNLESS ABSOLUTELY CERTAIN ABOUT WHAT YOU'RE DOING.
-	This is responsible for the website's layout, so you should not mess with it.*/
+/*Grid of the website. DO NOT TOUCH UNLESS ABSOLUTELY CERTAIN ABOUT WHAT YOU'RE DOING. This is responsible for the website's layout, so you should not mess with it.*/
 .black-background {
 	background-color: var(--black);
 	display: flex;
@@ -187,7 +186,20 @@ mark,
 }
 
 .content {
-	margin: var(--margin-20px);
+	max-width: 1000px;
+	margin: var(--margin-20px) auto;
+	padding: var(--padding-20px);
+}
+
+.header {
+	padding-bottom: 12px;
+	margin-bottom: 12px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.content-box-rounded-corners h5 {
+	margin-top: 0;
+	margin-bottom: 8px;
 }
 
 .logo {
@@ -239,22 +251,12 @@ mark,
 	text-decoration: none;
 }
 
-.funfacts {
-	grid-area: funfacts;
-}
-
-.languages {
-	grid-area: languages;
-}
-
-.personalinfo {
-	grid-area: personalinfo;
-}
-
-.funfacts,
-.languages,
-.personalinfo {
-	text-align: center;
-}
-
 /* IDs */
+
+/* redimensioning */
+@media (max-width: 800px) {
+
+	.content {
+		padding: 12px;
+	}
+}
