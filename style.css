@@ -15,22 +15,24 @@
 }
 
 :root {
-
+	--white: white;
 	--black: black;
+	--grey: grey;
 
 	/* theme LIGHT */
-	--accent: #8ebb7f;
+	--accent: #8EA58C;
+	--hover: #738A6E;
 	--background-l: #ecf3e9;
 	--background-dark-l: #dcdcdc;
 
 	/* font sizes */
-	--h1: 46px;
-	--h2: 40px;
-	--h3: 36px;
-	--h4: 32px;
-	--h5: 28px;
-	--h6: 24px;
-	--small: 20px;
+	--h1: 42px;
+	--h2: 38px;
+	--h3: 32px;
+	--h4: 28px;
+	--h5: 24px;
+	--h6: 20px;
+	--small: 16px;
 	--p: 18px;
 
 	/* padding values */
@@ -81,6 +83,7 @@ q,
 abbr,
 address,
 cite,
+caption,
 bdo,
 a,
 button,
@@ -133,6 +136,7 @@ q,
 abbr,
 address,
 cite,
+caption,
 bdo,
 a,
 button,
@@ -153,7 +157,7 @@ sup {
 small,
 small * {
 	font-size: var(--small);
-	color: var(--background-dark-l);
+	color: var(--grey);
 }
 
 mark,
@@ -176,6 +180,36 @@ mark,
 	margin: var(--margin-10px);
 }
 
+.content-box-rounded-corners h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-top: 0;
+	margin-bottom: 8px;
+}
+
+.link-list li a {
+	color: var(--accent);
+	text-decoration: none;
+}
+
+.link-list li a:hover {
+	color: var(--hover);
+}
+
+.star-dots {
+	list-style-type: "✦ ";
+}
+
+.no-dots {
+	margin: var(--no-margin);
+	margin-top: var(--margin-20px);
+	padding: var(--no-padding);
+	list-style-type: none;
+}
+
 /*Grid of the website. DO NOT TOUCH UNLESS ABSOLUTELY CERTAIN ABOUT WHAT YOU'RE DOING. This is responsible for the website's layout, so you should not mess with it.*/
 .black-background {
 	background-color: var(--black);
@@ -186,20 +220,14 @@ mark,
 }
 
 .content {
-	max-width: 1000px;
+	max-width: 100vw;
 	margin: var(--margin-20px) auto;
 	padding: var(--padding-20px);
 }
 
 .header {
-	padding-bottom: 12px;
-	margin-bottom: 12px;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-.content-box-rounded-corners h5 {
-	margin-top: 0;
-	margin-bottom: 8px;
+	padding: var(--padding-10px);
+	margin: var(--margin-10px);
 }
 
 .logo {
@@ -252,6 +280,20 @@ mark,
 }
 
 /* IDs */
+#likes-dislikes {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto;
+	grid-template-areas: 
+	"likes dislikes";
+}
+
+#likes, #dislikes {
+	padding: var(--padding-20px);
+	margin: var(--margin-10px);
+	background-color: var(--background-dark-l);
+	border-radius: var(--standard-border-radius);
+}
 
 /* redimensioning */
 @media (max-width: 800px) {
