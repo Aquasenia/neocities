@@ -172,6 +172,8 @@ mark,
 .content-box-rounded-corners {
 	background-color: var(--background-dark-l);
 	border-radius: var(--standard-border-radius);
+	padding: var(--padding-20px);
+	margin: var(--no-margin);
 }
 
 /*Grid of the website. DO NOT TOUCH UNLESS ABSOLUTELY CERTAIN ABOUT WHAT YOU'RE DOING.
@@ -208,7 +210,7 @@ mark,
 	max-width: 100vw;
 	width: 100%;
 	padding: 6px 0 var(--padding-10px);
-	margin: 0;
+	margin: var(--no-margin);
 }
 
 .navbar ul {
@@ -235,14 +237,6 @@ mark,
 .navbar-box a:hover {
 	color: var(--accent);
 	text-decoration: none;
-}
-
-.content-wrap {
-	display: grid;
-	grid-template-columns: auto auto auto;
-	grid-template-areas:
-		"funfacts languages personalinfo";
-	gap: var(--padding-20px);
 }
 
 .funfacts {
