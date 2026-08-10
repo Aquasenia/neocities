@@ -167,6 +167,11 @@ mark,
 
 /* Classes */
 /*Utility classes that can be paired with other classes, for aesthetic uses only.*/
+
+.add-right-margin {
+	padding-right: var(--margin-20px);
+}
+
 .navbar-box {
 	background-color: var(--black);
 	padding: var(--padding-10px);
@@ -277,6 +282,11 @@ h6 {
 .navbar-box a:hover {
 	color: var(--accent);
 	text-decoration: none;
+}
+
+.credits-list {
+	display: grid;
+	grid-template-columns: 0.5fr 1fr;
 }
 
 /* IDs */
