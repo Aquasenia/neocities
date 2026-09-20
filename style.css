@@ -22,6 +22,7 @@
 	/* theme LIGHT */
 	--accent: #8EA58C;
 	--hover: #738A6E;
+	--mark: rgba(142, 165, 140, 0.7);
 	--background-l: #ecf3e9;
 	--background-dark-l: #dcdcdc;
 
@@ -160,7 +161,12 @@ small * {
 	color: var(--grey);
 }
 
-mark,
+mark {
+	background: linear-gradient(to bottom, transparent 60%, var(--mark) 40%);
+	color: inherit;
+}
+
+
 ::selection {
 	background-color: var(--accent);
 }
@@ -202,10 +208,6 @@ h6 {
 
 .link-list li a:hover {
 	color: var(--hover);
-}
-
-.star-dots {
-	list-style-type: "✦ ";
 }
 
 .no-dots {
@@ -303,6 +305,10 @@ h6 {
 	margin: var(--margin-10px);
 	background-color: var(--background-dark-l);
 	border-radius: var(--standard-border-radius);
+}
+
+#dislikes small {
+	color: black;
 }
 
 /* redimensioning */
