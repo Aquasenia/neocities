@@ -355,14 +355,14 @@ h6 {
 #home-sticker-container {
 	display: flex;
 	position: fixed;
-	width: 500px;
-	bottom: 100px;
-	left: 800px;
+	width: 600px;
+	bottom: -17px;
+	left: 600px;
 }
 
 #home-sticker {
 	display: block;
-	width: 500px;
+	width: 600px;
 }
 
 /* redimensioning */
