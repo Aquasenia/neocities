@@ -166,9 +166,8 @@ mark {
 	color: inherit;
 }
 
-
 ::selection {
-	background-color: var(--accent);
+	background-color: var(--mark);
 }
 
 /* Classes */
@@ -217,19 +216,60 @@ h6 {
 	list-style-type: none;
 }
 
+/*For the grid under the "likes & dislikes" section*/
+.table-about-me {
+	display: flexbox;
+	max-width: 624px;
+	padding: var(--padding-10px);
+	margin: var(--margin-10px);
+	border: solid var(--accent);
+	border-radius: var(--standard-border-radius);
+	background-color: var(--mark);
+}
+
+.table-row {
+	display: grid;
+	grid-template-columns: 180px minmax(min-content, max-content);
+	grid-template-areas:
+		'table-header table-data';
+}
+
+.table-header {
+	display: flexbox;
+	justify-self: right;
+	margin-right: var(--margin-10px);
+	font-family: var(--font-header);
+	font-weight: 700;
+	font-size: 22px;
+	grid-area: table-header;
+}
+
+.table-data {
+	margin-top: 4px;
+	display: flexbox;
+	justify-self: left;
+	grid-area: table-data;
+}
+
+/*End of section*/
+
 /*Grid of the website. DO NOT TOUCH UNLESS ABSOLUTELY CERTAIN ABOUT WHAT YOU'RE DOING. This is responsible for the website's layout, so you should not mess with it.*/
 .black-background {
 	background-color: var(--black);
 	display: flex;
 	flex-direction: column;
+	position: static;
 	align-items: center;
-	padding: 0;
+	padding: 0px;
 }
 
-.content {
+.home-content {
+	box-sizing: border-box;
 	max-width: 100vw;
-	margin: var(--margin-20px) auto;
 	padding: var(--padding-20px);
+	background-image: url("https://i.postimg.cc/XYP7sz2q/white-crumpled-paper.jpg");
+	background-repeat: repeat;
+	background-size: cover;
 }
 
 .header {
@@ -296,11 +336,12 @@ h6 {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: auto;
-	grid-template-areas: 
-	"likes dislikes";
+	grid-template-areas:
+		"likes dislikes";
 }
 
-#likes, #dislikes {
+#likes,
+#dislikes {
 	padding: var(--padding-20px);
 	margin: var(--margin-10px);
 	background-color: var(--background-dark-l);
@@ -309,6 +350,19 @@ h6 {
 
 #dislikes small {
 	color: black;
+}
+
+#home-sticker-container {
+	display: flex;
+	position: fixed;
+	width: 500px;
+	bottom: 100px;
+	left: 800px;
+}
+
+#home-sticker {
+	display: block;
+	width: 500px;
 }
 
 /* redimensioning */
