@@ -23,7 +23,7 @@
 	--accent: #8EA58C;
 	--hover: #738A6E;
 	--mark: rgba(142, 165, 140, 0.7);
-	--background-l: #ecf3e9;
+	--background-l: #ededed;
 	--background-dark-l: #dcdcdc;
 
 	/* font sizes */
@@ -198,6 +198,12 @@ h5,
 h6 {
 	margin-top: 0;
 	margin-bottom: 8px;
+}
+
+.link-list li {
+	list-style-type: none;
+	padding-left: var(--no-padding);
+	margin-left: var(--no-margin);
 }
 
 .link-list li a {

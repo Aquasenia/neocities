@@ -1,0 +1,342 @@
+/*
+
+!!DOCUMENT STRUCTURE!!
+Documents are sorted alphabetically.
+
+0 - Base document
+1 -  Amanians
+2 -  Jordenians
+3 -  Pheralians
+4 -  Phyremians
+5 -  Sylvians
+6 -  Valistians
+7 -  Wylonians
++ more to be added soon
+
+*/
+
+/* BASE DOCUMENT*/
+
+/* Fonts loading. This is to make sure I can use them via the local files. */
+@font-face {
+    font-family: "Cerotta";
+    src: url(/fonts/Cerotta.ttf);
+}
+
+@font-face {
+    font-family: "Amperzand";
+    src: url(/fonts/Amperzand.ttf);
+}
+
+@font-face {
+    font-family: "Mulish";
+    src: url(/fonts/Mulish-VariableFont.ttf);
+}
+
+/*---------------------------------------------------------*/
+:root {
+    /*COLORS*/
+    --color-background: #F1E9D2;
+    --color-text-body-dark: #3C322C;
+    --color-text-body-h: #86624d;
+    --color-text-body-light: ;
+
+    /*SPECIES COLORS*/
+    --color-amanians: #2ec7ff;
+    --color-jordenians: #705432;
+    --color-pheralians: #ffda21;
+    --color-phyremians: #f04800;
+    --color-sylvians: #55bd3e;
+    --color-valistians: #ffe205;
+    --color-wylonians: #000e4f;
+
+    /*FONTS*/
+    --font-header: Cerotta;
+    --font-body: Mulish;
+
+    /*FONT SIZES*/
+    --size-h1: 4.5em;
+    --size-h2: 4em;
+    --size-h3: 3.5em;
+    --size-h4: 3em;
+    --size-h5: 2.5em;
+    --size-h6: 2em;
+}
+
+/*---------------------------------------------------------*/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 20px;
+    padding: 0px;
+    background-color: var(--color-background);
+}
+
+section {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--color-text-body-dark);
+    font-family: var(--font-header);
+    padding: 0px;
+    margin: 0px;
+}
+
+h1 {
+    font-size: var(--size-h1);
+}
+
+h2 {
+    font-size: var(--size-h2);
+}
+
+h3 {
+    font-size: var(--size-h3);
+}
+
+h4 {
+    font-size: var(--size-h4);
+}
+
+h5 {
+    font-size: var(--size-h5);
+}
+
+h6 {
+    font-size: var(--size-h6);
+}
+
+sub {
+    font-size: 1em;
+    font-family: var(--font-body);
+    color: var(--color-text-body-dark);
+}
+
+p,
+a,
+li,
+caption,
+mark,
+legend,
+desc,
+details,
+strong,
+b,
+i,
+em,
+small,
+del,
+ins,
+sub,
+sup,
+blockquote,
+abbr,
+q,
+address,
+cite,
+bdo,
+dfn {
+    color: var(--color-text-body-dark);
+    font-family: var(--font-body);
+    padding: 0px;
+    margin: 0px;
+}
+
+ul,
+ol {
+    list-style-type: none;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+table {
+    border: hidden;
+}
+
+th {
+    font-family: var(--font-body);
+    padding-right: 20px;
+}
+
+td {
+    font-family: var(--font-body);
+}
+
+.add-padding-right {
+    padding-right: 10px;
+}
+
+.vertical-align-middle {
+    vertical-align: middle;
+}
+
+.slideRight-hover {
+    display: inline-block;
+    max-width: fit-content;
+    min-width: min-content;
+    max-height: fit-content;
+    min-width: min-content;
+    left: 0px;
+    transition: transform .3s ease-in-out;
+}
+
+.slideRight-hover:hover {
+    transform: translate(20px, 0px);
+
+}
+
+.slideRight-hover a:hover {
+    color: var(--color-text-body-h);
+}
+
+.t-species-list {
+    display: inline-block;
+    grid-area: text;
+}
+
+.species-icon {
+    grid-area: icon;
+}
+
+
+/* This is for the available species list located in the 'Worldbuilding' page.
+Be careful with the placement of items in the grid as it directly affects the page's whole display.*/
+#species-list {
+    display: grid;
+    grid-template-columns: 30px 100px;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-areas:
+        'fa-fish-fins text'
+        'fa-mountain text'
+        'fa-bolt text'
+        'fa-fire text'
+        'fa-leaf text'
+        'fa-sun text'
+        'fa-moon text';
+}
+
+.fa-fish-fins {
+    grid-area: fa-fish-fins;
+}
+
+.fa-mountain {
+    grid-area: fa-mountain;
+}
+
+.fa-bolt {
+    grid-area: fa-bolt;
+}
+
+.fa-leaf {
+    grid-area: fa-leaf;
+}
+
+.fa-fire {
+    grid-area: fa-fire;
+}
+
+.fa-sun {
+    grid-area: fa-sun;
+}
+
+.fa-moon {
+    grid-area: fa-moon;
+}
+
+.fa-solid {
+    justify-self: center;
+    vertical-align: middle;
+}
+
+.stats-table {
+    padding-top: 20px;
+}
+
+.wylonians-rectangle-box {
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+    background-color: var(--color-wylonians);
+}
+
+/*AMANIANS*/
+.amanians-header {
+    padding-top: 30px;
+    color: var(--color-amanians);
+}
+
+.amanians-color {
+    color: var(--color-amanians);
+}
+
+/*JORDENIANS*/
+.jordenians-header {
+    padding-top: 30px;
+    color: var(--color-jordenians);
+}
+
+.jordenians-color {
+    color: var(--color-jordenians);
+}
+
+/*PHERALIANS*/
+.pheralians-header {
+    padding-top: 30px;
+    color: var(--color-pheralians);
+}
+
+.pheralians-color {
+    color: var(--color-pheralians);
+}
+
+/*PHYREMIANS*/
+.phyremians-header {
+    padding-top: 30px;
+    color: var(--color-phyremians);
+}
+
+.phyremians-color {
+    color: var(--color-phyremians);
+}
+
+/*SYLVIANS*/
+.sylvians-header {
+    padding-top: 30px;
+    color: var(--color-sylvians);
+}
+
+.sylvians-color {
+    color: var(--color-sylvians);
+}
+
+/*VALISTIANS*/
+.valistians-header {
+    padding-top: 30px;
+    color: var(--color-valistians);
+}
+
+.valistians-color {
+    color: var(--color-valistians);
+}
+
+/*WYLONIANS*/
+.wylonians-header {
+    padding-top: 30px;
+    color: var(--color-wylonians);
+}
+
+.wylonians-color {
+    color: var(--color-wylonians);
+}
