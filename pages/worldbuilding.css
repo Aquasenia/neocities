@@ -39,7 +39,7 @@ Documents are sorted alphabetically.
     --color-background: #F1E9D2;
     --color-text-body-dark: #3C322C;
     --color-text-body-h: #86624d;
-    --color-text-body-light: ;
+    --color-text-body-light: white;
 
     /*SPECIES COLORS*/
     --color-amanians: #2ec7ff;
@@ -49,6 +49,11 @@ Documents are sorted alphabetically.
     --color-sylvians: #55bd3e;
     --color-valistians: #ffe205;
     --color-wylonians: #000e4f;
+
+    --color-wylonians-light: rgba();
+    --color-wylonians-trans: rgba(0, 14, 79, 0.5);
+
+    --semitrans-white: rgba(255, 255, 255, 0.8);
 
     /*FONTS*/
     --font-header: Cerotta;
@@ -69,6 +74,7 @@ Documents are sorted alphabetically.
 }
 
 body {
+    display: grid;
     margin: 20px;
     padding: 0px;
     background-color: var(--color-background);
@@ -161,19 +167,11 @@ a {
     text-decoration: none;
 }
 
-table {
-    border: hidden;
-}
-
-th {
-    font-family: var(--font-body);
-    padding-right: 20px;
-}
-
-td {
+th, td {
     font-family: var(--font-body);
 }
 
+/*---------------------------------------------------------*/
 .add-padding-right {
     padding-right: 10px;
 }
@@ -181,6 +179,7 @@ td {
 .vertical-align-middle {
     vertical-align: middle;
 }
+
 
 .slideRight-hover {
     display: inline-block;
@@ -201,22 +200,14 @@ td {
     color: var(--color-text-body-h);
 }
 
-.t-species-list {
-    display: inline-block;
-    grid-area: text;
-}
-
-.species-icon {
-    grid-area: icon;
-}
-
+/*---------------------------------------------------------*/
 
 /* This is for the available species list located in the 'Worldbuilding' page.
 Be careful with the placement of items in the grid as it directly affects the page's whole display.*/
 #species-list {
     display: grid;
     grid-template-columns: 30px 100px;
-    grid-template-rows: repeat(8, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
     grid-template-areas:
         'fa-fish-fins text'
         'fa-mountain text'
@@ -225,6 +216,16 @@ Be careful with the placement of items in the grid as it directly affects the pa
         'fa-leaf text'
         'fa-sun text'
         'fa-moon text';
+}
+
+.t-species-list {
+    display: inline-block;
+    grid-area: text;
+}
+
+.fa-solid {
+    justify-self: center;
+    vertical-align: middle;
 }
 
 .fa-fish-fins {
@@ -255,25 +256,44 @@ Be careful with the placement of items in the grid as it directly affects the pa
     grid-area: fa-moon;
 }
 
-.fa-solid {
-    justify-self: center;
-    vertical-align: middle;
-}
+/*---------------------------------------------------------*/
 
 .stats-table {
-    padding-top: 20px;
+    display: table;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: var(--semitrans-white);
+    border-radius: 10px;
 }
 
-.wylonians-rectangle-box {
-    color: white;
-    padding: 5px;
-    border-radius: 3px;
-    background-color: var(--color-wylonians);
+.stats-table div {
+    display: block;
 }
+
+.stats-table table, h6 {
+    place-self: center;
+}
+
+.stats-table h6 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 200;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.stats-table th {
+    text-align: right;
+    padding-right: 5px;
+}
+
+.stats-table td {
+    text-align: left;
+}
+
+/*---------------------------------------------------------*/
 
 /*AMANIANS*/
 .amanians-header {
-    padding-top: 30px;
     color: var(--color-amanians);
 }
 
@@ -281,9 +301,21 @@ Be careful with the placement of items in the grid as it directly affects the pa
     color: var(--color-amanians);
 }
 
+.amanians-rectangle-box {
+    max-width: fit-content;
+    min-width: min-content;
+    color: black;
+    display: flex;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    background-color: var(--color-amanians);
+}
+
+/*---------------------------------------------------------*/
 /*JORDENIANS*/
 .jordenians-header {
-    padding-top: 30px;
     color: var(--color-jordenians);
 }
 
@@ -291,9 +323,21 @@ Be careful with the placement of items in the grid as it directly affects the pa
     color: var(--color-jordenians);
 }
 
+.jordenians-rectangle-box {
+    max-width: fit-content;
+    min-width: min-content;
+    color: var(--color-text-body-light);
+    display: flex;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    background-color: var(--color-jordenians);
+}
+
+/*---------------------------------------------------------*/
 /*PHERALIANS*/
 .pheralians-header {
-    padding-top: 30px;
     color: var(--color-pheralians);
 }
 
@@ -301,9 +345,21 @@ Be careful with the placement of items in the grid as it directly affects the pa
     color: var(--color-pheralians);
 }
 
+.pheralians-rectangle-box {
+    max-width: fit-content;
+    min-width: min-content;
+    color: black;
+    display: flex;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    background-color: var(--color-pheralians);
+}
+
+/*---------------------------------------------------------*/
 /*PHYREMIANS*/
 .phyremians-header {
-    padding-top: 30px;
     color: var(--color-phyremians);
 }
 
@@ -311,9 +367,21 @@ Be careful with the placement of items in the grid as it directly affects the pa
     color: var(--color-phyremians);
 }
 
+.phyremians-rectangle-box {
+    max-width: fit-content;
+    min-width: min-content;
+    color: white;
+    display: flex;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    background-color: var(--color-phyremians);
+}
+
+/*---------------------------------------------------------*/
 /*SYLVIANS*/
 .sylvians-header {
-    padding-top: 30px;
     color: var(--color-sylvians);
 }
 
@@ -321,9 +389,21 @@ Be careful with the placement of items in the grid as it directly affects the pa
     color: var(--color-sylvians);
 }
 
+.sylvians-rectangle-box {
+    max-width: fit-content;
+    min-width: min-content;
+    color: white;
+    display: flex;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    background-color: var(--color-sylvians);
+}
+
+/*---------------------------------------------------------*/
 /*VALISTIANS*/
 .valistians-header {
-    padding-top: 30px;
     color: var(--color-valistians);
 }
 
@@ -331,12 +411,42 @@ Be careful with the placement of items in the grid as it directly affects the pa
     color: var(--color-valistians);
 }
 
+.valistians-rectangle-box {
+    max-width: fit-content;
+    min-width: min-content;
+    color: black;
+    display: flex;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    background-color: var(--color-valistians);
+}
+
+/*---------------------------------------------------------*/
 /*WYLONIANS*/
+.wylonians-page {
+    background-image: url(/images/wylonians-background.jpg);
+    background-repeat: no-repeat;
+    background-size: 100vw;
+}
+
 .wylonians-header {
-    padding-top: 30px;
     color: var(--color-wylonians);
 }
 
 .wylonians-color {
     color: var(--color-wylonians);
+}
+
+.wylonians-rectangle-box {
+    max-width: fit-content;
+    min-width: min-content;
+    color: var(--color-text-body-light);
+    display: flex;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    background-color: var(--color-wylonians);
 }
