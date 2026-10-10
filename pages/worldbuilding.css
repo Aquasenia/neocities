@@ -256,14 +256,26 @@ Be careful with the placement of items in the grid as it directly affects the pa
     grid-area: fa-moon;
 }
 
-/*---------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------*/
+
+/*LI'ONAS
+Basically the general settings for the pages that present the Li'Ona strains.*/
+.lionas-page {
+    display: grid;
+    grid-template-areas: 
+    'stats-table';
+}
 
 .stats-table {
+    grid-area: stats-table;
     display: table;
     margin-top: 20px;
     padding: 20px;
     background-color: var(--semitrans-white);
     border-radius: 10px;
+    max-width: 50vw;
+    width: 35vw;
+    min-width: 10vw;
 }
 
 .stats-table div {
@@ -290,7 +302,7 @@ Be careful with the placement of items in the grid as it directly affects the pa
     text-align: left;
 }
 
-/*---------------------------------------------------------*/
+/*------------------------------------------------------------------------------*/
 
 /*AMANIANS*/
 .amanians-header {
@@ -412,15 +424,15 @@ Be careful with the placement of items in the grid as it directly affects the pa
 }
 
 .valistians-rectangle-box {
-    max-width: fit-content;
-    min-width: min-content;
-    color: black;
-    display: flex;
-    padding: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border-radius: 3px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 25px;
+    padding: 4px 10px;
+    margin: 2px;
+    border-radius: 30px;
     background-color: var(--color-valistians);
+    color: black;
+    white-space: nowrap;
 }
 
 /*---------------------------------------------------------*/
@@ -440,13 +452,13 @@ Be careful with the placement of items in the grid as it directly affects the pa
 }
 
 .wylonians-rectangle-box {
-    max-width: fit-content;
-    min-width: min-content;
-    color: var(--color-text-body-light);
-    display: flex;
-    padding: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border-radius: 3px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 25px;
+    padding: 4px 10px;
+    margin: 2px;
+    border-radius: 30px;
     background-color: var(--color-wylonians);
+    color: var(--color-text-body-light);
+    white-space: nowrap;
 }
