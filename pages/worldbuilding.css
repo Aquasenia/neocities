@@ -256,54 +256,6 @@ Be careful with the placement of items in the grid as it directly affects the pa
     grid-area: fa-moon;
 }
 
-/*--------------------------------------------------------------------------------------*/
-
-/*LI'ONAS
-Basically the general settings for the pages that present the Li'Ona strains.*/
-.lionas-page {
-    display: grid;
-    grid-template-areas: 
-    'stats-table';
-}
-
-.stats-table {
-    grid-area: stats-table;
-    display: table;
-    margin-top: 20px;
-    padding: 20px;
-    background-color: var(--semitrans-white);
-    border-radius: 10px;
-    max-width: 50vw;
-    width: 35vw;
-    min-width: 10vw;
-}
-
-.stats-table div {
-    display: block;
-}
-
-.stats-table table, h6 {
-    place-self: center;
-}
-
-.stats-table h6 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: 200;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.stats-table th {
-    text-align: right;
-    padding-right: 5px;
-}
-
-.stats-table td {
-    text-align: left;
-}
-
-/*------------------------------------------------------------------------------*/
-
 /*AMANIANS*/
 .amanians-header {
     color: var(--color-amanians);
@@ -314,15 +266,15 @@ Basically the general settings for the pages that present the Li'Ona strains.*/
 }
 
 .amanians-rectangle-box {
-    max-width: fit-content;
-    min-width: min-content;
-    color: black;
-    display: flex;
-    padding: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border-radius: 3px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 25px;
+    padding: 4px 10px;
+    margin: 2px;
+    border-radius: 30px;
     background-color: var(--color-amanians);
+    color: var(--color-text-body-light);
+    white-space: nowrap;
 }
 
 /*---------------------------------------------------------*/
@@ -336,15 +288,15 @@ Basically the general settings for the pages that present the Li'Ona strains.*/
 }
 
 .jordenians-rectangle-box {
-    max-width: fit-content;
-    min-width: min-content;
-    color: var(--color-text-body-light);
-    display: flex;
-    padding: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border-radius: 3px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 25px;
+    padding: 4px 10px;
+    margin: 2px;
+    border-radius: 30px;
     background-color: var(--color-jordenians);
+    color: var(--color-text-body-light);
+    white-space: nowrap;
 }
 
 /*---------------------------------------------------------*/
@@ -358,15 +310,15 @@ Basically the general settings for the pages that present the Li'Ona strains.*/
 }
 
 .pheralians-rectangle-box {
-    max-width: fit-content;
-    min-width: min-content;
-    color: black;
-    display: flex;
-    padding: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border-radius: 3px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 25px;
+    padding: 4px 10px;
+    margin: 2px;
+    border-radius: 30px;
     background-color: var(--color-pheralians);
+    color: black;
+    white-space: nowrap;
 }
 
 /*---------------------------------------------------------*/
@@ -380,15 +332,15 @@ Basically the general settings for the pages that present the Li'Ona strains.*/
 }
 
 .phyremians-rectangle-box {
-    max-width: fit-content;
-    min-width: min-content;
-    color: white;
-    display: flex;
-    padding: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border-radius: 3px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 25px;
+    padding: 4px 10px;
+    margin: 2px;
+    border-radius: 30px;
     background-color: var(--color-phyremians);
+    color: var(--color-text-body-light);
+    white-space: nowrap;
 }
 
 /*---------------------------------------------------------*/
@@ -402,15 +354,15 @@ Basically the general settings for the pages that present the Li'Ona strains.*/
 }
 
 .sylvians-rectangle-box {
-    max-width: fit-content;
-    min-width: min-content;
-    color: white;
-    display: flex;
-    padding: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border-radius: 3px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 25px;
+    padding: 4px 10px;
+    margin: 2px;
+    border-radius: 30px;
     background-color: var(--color-sylvians);
+    color: black;
+    white-space: nowrap;
 }
 
 /*---------------------------------------------------------*/
@@ -432,33 +384,5 @@ Basically the general settings for the pages that present the Li'Ona strains.*/
     border-radius: 30px;
     background-color: var(--color-valistians);
     color: black;
-    white-space: nowrap;
-}
-
-/*---------------------------------------------------------*/
-/*WYLONIANS*/
-.wylonians-page {
-    background-image: url(/images/wylonians-background.jpg);
-    background-repeat: no-repeat;
-    background-size: 100vw;
-}
-
-.wylonians-header {
-    color: var(--color-wylonians);
-}
-
-.wylonians-color {
-    color: var(--color-wylonians);
-}
-
-.wylonians-rectangle-box {
-    display: inline-flex;
-    align-items: center;
-    min-height: 25px;
-    padding: 4px 10px;
-    margin: 2px;
-    border-radius: 30px;
-    background-color: var(--color-wylonians);
-    color: var(--color-text-body-light);
     white-space: nowrap;
 }
