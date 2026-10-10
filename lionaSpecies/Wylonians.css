@@ -17,8 +17,11 @@
 /*---------------------------------------------------------*/
 :root {
     /*COLORS*/
-
-    --color-wylonians: #000e4f;
+    --color-wylonians-lightest: #c6ccec;
+    --color-wylonians-light: #7d90e8;
+    --color-wylonians-standard: #002dff;
+    --color-wylonians-dark: #0925aa;
+    --color-wylonians-darkest: #000e4f;
 
     /*FONTS*/
     --font-header: Cerotta;
@@ -31,6 +34,7 @@
     --size-h4: 3em;
     --size-h5: 2.5em;
     --size-h6: 2em;
+    --size-body: 1em;
 }
 
 /*---------------------------------------------------------*/
@@ -40,8 +44,10 @@
 }
 
 body {
-    padding: 20px;
-    background-color: ;
+    display: grid;
+    padding: 0px;
+    margin: 0px;
+    background-color: var(--color-wylonians-darkest);
 }
 
 h1 {
@@ -66,4 +72,47 @@ h5 {
 
 h6 {
     font-size: var(--size-h6);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    padding: 0px;
+    margin: 0px;
+    font-family: var(--font-header);
+    color: var(--color-wylonians-dark);
+}
+
+p {
+    padding: 0px;
+    margin: 0px;
+    font-family: var(--font-body);
+    font-size: var(--size-body);
+}
+
+header > div {
+    color: white;
+    place-items: center;
+}
+
+nav {
+    color: white;
+    font-family: var(--font-body);
+    place-self: left;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+/*---------------------------------------------------------*/
+
+.add-padding-right {
+    padding-right: 10px;
+}
+
+/*---------------------------------------------------------*/
+
+.header {
+    padding: 20px;
+    background-color: black;
 }
