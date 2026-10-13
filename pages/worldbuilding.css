@@ -1,22 +1,3 @@
-/*
-
-!!DOCUMENT STRUCTURE!!
-Documents are sorted alphabetically.
-
-0 - Base document
-1 -  Amanians
-2 -  Jordenians
-3 -  Pheralians
-4 -  Phyremians
-5 -  Sylvians
-6 -  Valistians
-7 -  Wylonians
-+ more to be added soon
-
-*/
-
-/* BASE DOCUMENT*/
-
 /* Fonts loading. This is to make sure I can use them via the local files. */
 @font-face {
     font-family: "Cerotta";
@@ -36,24 +17,9 @@ Documents are sorted alphabetically.
 /*---------------------------------------------------------*/
 :root {
     /*COLORS*/
-    --color-background: #F1E9D2;
-    --color-text-body-dark: #3C322C;
-    --color-text-body-h: #86624d;
-    --color-text-body-light: white;
-
-    /*SPECIES COLORS*/
-    --color-amanians: #2ec7ff;
-    --color-jordenians: #705432;
-    --color-pheralians: #ffda21;
-    --color-phyremians: #f04800;
-    --color-sylvians: #55bd3e;
-    --color-valistians: #ffe205;
-    --color-wylonians: #000e4f;
-
-    --color-wylonians-light: rgba();
-    --color-wylonians-trans: rgba(0, 14, 79, 0.5);
-
-    --semitrans-white: rgba(255, 255, 255, 0.8);
+    --card-text: white;
+    --card: rgb(14, 1, 82);
+    --card-hover: rgb(19, 1, 48);
 
     /*FONTS*/
     --font-header: Cerotta;
@@ -66,6 +32,8 @@ Documents are sorted alphabetically.
     --size-h4: 3em;
     --size-h5: 2.5em;
     --size-h6: 2em;
+    --size-body: 1em;
+    --size-small: 0.8em;
 }
 
 /*---------------------------------------------------------*/
@@ -75,27 +43,9 @@ Documents are sorted alphabetically.
 
 body {
     display: grid;
-    margin: 20px;
-    padding: 0px;
-    background-color: var(--color-background);
-}
-
-section {
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: var(--color-text-body-dark);
-    font-family: var(--font-header);
-    padding: 0px;
     margin: 0px;
-}
+    padding: 20px;
+background-image: linear-gradient(to bottom, #051937, #103d63, #156592, #1391bf, #12bfeb);}
 
 h1 {
     font-size: var(--size-h1);
@@ -121,268 +71,107 @@ h6 {
     font-size: var(--size-h6);
 }
 
-sub {
-    font-size: 1em;
-    font-family: var(--font-body);
-    color: var(--color-text-body-dark);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    padding: 0px;
+    margin: 10px 0px;
+    font-family: var(--font-header);
 }
 
 p,
-a,
-li,
-caption,
-mark,
-legend,
-desc,
-details,
-strong,
-b,
-i,
-em,
-small,
-del,
-ins,
-sub,
-sup,
-blockquote,
-abbr,
-q,
-address,
-cite,
-bdo,
-dfn {
-    color: var(--color-text-body-dark);
+a {
+    font-size: var(--font-body);
     font-family: var(--font-body);
+    text-decoration: none;
+    color: black;
+}
+
+.subtitle {
+    font-size: var(--size-small);
+}
+
+a:hover {
+    color: salmon;
+}
+
+nav {
+    padding: 10px;
+    background-color: blueviolet;
+    border-radius: 5px;
+}
+
+nav ul {
+    list-style: none;
     padding: 0px;
     margin: 0px;
 }
 
-ul,
-ol {
-    list-style-type: none;
-    padding: 0px;
-}
-
-a {
+nav ul li a {
+    color: white;
     text-decoration: none;
 }
 
-th, td {
-    font-family: var(--font-body);
+/*-------------------------------------------------------------------------*/
+.cards-container {
+    place-content: center;
+    max-width: 90vw;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
 }
 
-/*---------------------------------------------------------*/
-.add-padding-right {
-    padding-right: 10px;
-}
-
-.vertical-align-middle {
-    vertical-align: middle;
-}
-
-
-.slideRight-hover {
-    display: inline-block;
-    max-width: fit-content;
-    min-width: min-content;
-    max-height: fit-content;
-    min-width: min-content;
-    left: 0px;
-    transition: transform .3s ease-in-out;
-}
-
-.slideRight-hover:hover {
-    transform: translate(20px, 0px);
-
-}
-
-.slideRight-hover a:hover {
-    color: var(--color-text-body-h);
-}
-
-/*---------------------------------------------------------*/
-
-/* This is for the available species list located in the 'Worldbuilding' page.
-Be careful with the placement of items in the grid as it directly affects the page's whole display.*/
-#species-list {
+.card {
+    margin: 10px;
+    padding: 10px;
+    place-items: center;
     display: grid;
-    grid-template-columns: 30px 100px;
-    grid-template-rows: repeat(auto, 1fr);
+    max-width: max-content;
+    min-width: 50px;
     grid-template-areas:
-        'fa-fish-fins text'
-        'fa-mountain text'
-        'fa-bolt text'
-        'fa-fire text'
-        'fa-leaf text'
-        'fa-sun text'
-        'fa-moon text';
+        'svg title'
+        'svg desc'
+        'subtitle desc';
+    grid-template-columns: 100px minmax(min-content, 350px);
+    grid-template-rows: 50px minmax(min-content, max-content) auto;
+    background-color: var(--card);
+    border-radius: 5px;
 }
 
-.t-species-list {
-    display: inline-block;
-    grid-area: text;
+.card h6 {
+    grid-area: title;
+    padding: 0px;
+    margin: 0px;
+    color: var(--card-text);
+    place-self: center;
+    width: fit-content;
 }
 
-.fa-solid {
-    justify-self: center;
-    vertical-align: middle;
+.card p {
+    grid-area: desc;
+    padding: 0px;
+    margin: 0px;
+    color: var(--card-text);
+    place-self: center;
+    text-align: center;
+    width: fit-content;
 }
 
-.fa-fish-fins {
-    grid-area: fa-fish-fins;
+.card .subtitle {
+    grid-area: subtitle;
+    font-style: oblique;
+    color: var(--card-text);
 }
 
-.fa-mountain {
-    grid-area: fa-mountain;
+.card svg {
+    width: 80px;
+    grid-area: svg;
 }
 
-.fa-bolt {
-    grid-area: fa-bolt;
-}
-
-.fa-leaf {
-    grid-area: fa-leaf;
-}
-
-.fa-fire {
-    grid-area: fa-fire;
-}
-
-.fa-sun {
-    grid-area: fa-sun;
-}
-
-.fa-moon {
-    grid-area: fa-moon;
-}
-
-/*AMANIANS*/
-.amanians-header {
-    color: var(--color-amanians);
-}
-
-.amanians-color {
-    color: var(--color-amanians);
-}
-
-.amanians-rectangle-box {
-    display: inline-flex;
-    align-items: center;
-    min-height: 25px;
-    padding: 4px 10px;
-    margin: 2px;
-    border-radius: 30px;
-    background-color: var(--color-amanians);
-    color: var(--color-text-body-light);
-    white-space: nowrap;
-}
-
-/*---------------------------------------------------------*/
-/*JORDENIANS*/
-.jordenians-header {
-    color: var(--color-jordenians);
-}
-
-.jordenians-color {
-    color: var(--color-jordenians);
-}
-
-.jordenians-rectangle-box {
-    display: inline-flex;
-    align-items: center;
-    min-height: 25px;
-    padding: 4px 10px;
-    margin: 2px;
-    border-radius: 30px;
-    background-color: var(--color-jordenians);
-    color: var(--color-text-body-light);
-    white-space: nowrap;
-}
-
-/*---------------------------------------------------------*/
-/*PHERALIANS*/
-.pheralians-header {
-    color: var(--color-pheralians);
-}
-
-.pheralians-color {
-    color: var(--color-pheralians);
-}
-
-.pheralians-rectangle-box {
-    display: inline-flex;
-    align-items: center;
-    min-height: 25px;
-    padding: 4px 10px;
-    margin: 2px;
-    border-radius: 30px;
-    background-color: var(--color-pheralians);
-    color: black;
-    white-space: nowrap;
-}
-
-/*---------------------------------------------------------*/
-/*PHYREMIANS*/
-.phyremians-header {
-    color: var(--color-phyremians);
-}
-
-.phyremians-color {
-    color: var(--color-phyremians);
-}
-
-.phyremians-rectangle-box {
-    display: inline-flex;
-    align-items: center;
-    min-height: 25px;
-    padding: 4px 10px;
-    margin: 2px;
-    border-radius: 30px;
-    background-color: var(--color-phyremians);
-    color: var(--color-text-body-light);
-    white-space: nowrap;
-}
-
-/*---------------------------------------------------------*/
-/*SYLVIANS*/
-.sylvians-header {
-    color: var(--color-sylvians);
-}
-
-.sylvians-color {
-    color: var(--color-sylvians);
-}
-
-.sylvians-rectangle-box {
-    display: inline-flex;
-    align-items: center;
-    min-height: 25px;
-    padding: 4px 10px;
-    margin: 2px;
-    border-radius: 30px;
-    background-color: var(--color-sylvians);
-    color: black;
-    white-space: nowrap;
-}
-
-/*---------------------------------------------------------*/
-/*VALISTIANS*/
-.valistians-header {
-    color: var(--color-valistians);
-}
-
-.valistians-color {
-    color: var(--color-valistians);
-}
-
-.valistians-rectangle-box {
-    display: inline-flex;
-    align-items: center;
-    min-height: 25px;
-    padding: 4px 10px;
-    margin: 2px;
-    border-radius: 30px;
-    background-color: var(--color-valistians);
-    color: black;
-    white-space: nowrap;
+.card:hover {
+    background-color: var(--card-hover);
 }
