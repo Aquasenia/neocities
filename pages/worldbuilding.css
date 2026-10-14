@@ -17,9 +17,13 @@
 /*---------------------------------------------------------*/
 :root {
     /*COLORS*/
-    --card-text: white;
-    --card: rgb(14, 1, 82);
-    --card-hover: rgb(19, 1, 48);
+    --text: white;
+    --header: rgb(14, 1, 82);
+    --transparent: rgba(255, 255, 255, 0.475);
+
+    --card-text: rgb(14, 1, 82);
+    --card: rgba(251, 251, 252, 0.881);
+    --card-hover: rgba(190, 190, 190, 0.881);
 
     /*FONTS*/
     --font-header: Cerotta;
@@ -42,10 +46,32 @@
 }
 
 body {
-    display: grid;
     margin: 0px;
-    padding: 20px;
-background-image: linear-gradient(to bottom, #051937, #103d63, #156592, #1391bf, #12bfeb);}
+    padding: 0px;
+    background-image: url(/images/stars.jpg);
+    background-repeat: repeat;
+    background-size: 400px;
+}
+
+.page-container {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    'navbar species';
+    margin: 40px;
+    padding: 10px;
+    background-color: var(--transparent);
+}
+
+article {
+    grid-area: species;
+}
+
+.container {
+    grid-area: navbar;
+    background-color: var(--header);
+}
 
 h1 {
     font-size: var(--size-h1);
@@ -80,6 +106,8 @@ h6 {
     padding: 0px;
     margin: 10px 0px;
     font-family: var(--font-header);
+    color: var(--text);
+    text-align: center;
 }
 
 p,
@@ -95,12 +123,12 @@ a {
 }
 
 a:hover {
-    color: salmon;
+    color: var(--card-hover);
 }
 
 nav {
     padding: 10px;
-    background-color: blueviolet;
+    background-color: var(--header);
     border-radius: 5px;
 }
 
@@ -116,8 +144,16 @@ nav ul li a {
 }
 
 /*-------------------------------------------------------------------------*/
+.divider {
+    place-self: center;
+    width: 75vw;
+    background-color: var(--header);
+    border-radius: 5px;
+}
+
 .cards-container {
     place-content: center;
+    place-self: center;
     max-width: 90vw;
     overflow: hidden;
     display: flex;
